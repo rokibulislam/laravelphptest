@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class User extends Model
 {
+    use HasFactory;
     /**
      * The attributes that are mass assignable.
      *
@@ -15,4 +17,9 @@ class User extends Model
         'name',
         'comments',
     ];
+
+    public function avater() {
+       return asset("images/users/{$this->id}.jpg");
+    }
+
 }

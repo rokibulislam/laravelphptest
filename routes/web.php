@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/**
+ * Get an user along with comment by user id
+ * Must add id querystring
+ */
+Route::get('/', [ UserController::class, 'show' ] );
+
+/**
+ * Get an user along with comment by user id
+ * @param int $id
+ */
+Route::get('users/{id}', [ UserController::class, 'show' ] );
